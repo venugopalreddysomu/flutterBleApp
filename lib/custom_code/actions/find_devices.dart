@@ -16,7 +16,7 @@ Future<List<BTDeviceStruct>> findDevices() async {
   flutterBlue.scanResults.listen((results) {
     List<ScanResult> scannedDevices = [];
     for (ScanResult r in results) {
-      if (r.device.name.isNotEmpty) {
+      if (r.device.name.isNotEmpty && r.device.name.startsWith("BT")) {
         scannedDevices.add(r);
       }
     }
