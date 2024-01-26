@@ -214,13 +214,6 @@ class _DevicePageWidgetState extends State<DevicePageWidget> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Text(
-                      'You can send data to the connected device and receive data back from it.',
-                      style: FlutterFlowTheme.of(context).labelMedium.override(
-                            fontFamily: 'Montserrat',
-                            lineHeight: 1.4,
-                          ),
-                    ),
                     Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
@@ -325,20 +318,25 @@ class _DevicePageWidgetState extends State<DevicePageWidget> {
                         ],
                       ),
                     ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
-                      child: wrapWithModel(
-                        model: _model.displayReceivedDataModel,
-                        updateCallback: () => setState(() {}),
-                        child: DisplayReceivedDataWidget(
-                          device: BTDeviceStruct(
-                            name: widget.deviceName,
-                            id: widget.deviceId,
-                            rssi: widget.deviceRssi,
+                    Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 24.0, 0.0, 0.0),
+                          child: wrapWithModel(
+                            model: _model.displayReceivedDataModel,
+                            updateCallback: () => setState(() {}),
+                            child: DisplayReceivedDataWidget(
+                              device: BTDeviceStruct(
+                                name: widget.deviceName,
+                                id: widget.deviceId,
+                                rssi: widget.deviceRssi,
+                              ),
+                            ),
                           ),
                         ),
-                      ),
+                      ],
                     ),
                     Padding(
                       padding:
