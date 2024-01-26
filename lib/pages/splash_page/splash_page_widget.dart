@@ -76,9 +76,23 @@ class _SplashPageWidgetState extends State<SplashPageWidget> {
         appBar: AppBar(
           backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
           automaticallyImplyLeading: false,
-          title: Text(
-            'Bluetooth Demo',
-            style: FlutterFlowTheme.of(context).titleLarge,
+          title: Row(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(8.0),
+                  child: Image.asset(
+                    'assets/images/BridgeThings-logo2.png',
+                    width: 250.0,
+                    height: 50.0,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+            ],
           ),
           actions: [],
           centerTitle: true,

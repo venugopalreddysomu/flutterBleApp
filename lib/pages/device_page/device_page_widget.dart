@@ -321,17 +321,19 @@ class _DevicePageWidgetState extends State<DevicePageWidget> {
                     Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 24.0, 0.0, 0.0),
-                          child: wrapWithModel(
-                            model: _model.displayReceivedDataModel,
-                            updateCallback: () => setState(() {}),
-                            child: DisplayReceivedDataWidget(
-                              device: BTDeviceStruct(
-                                name: widget.deviceName,
-                                id: widget.deviceId,
-                                rssi: widget.deviceRssi,
+                        Flexible(
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 24.0, 0.0, 0.0),
+                            child: wrapWithModel(
+                              model: _model.displayReceivedDataModel,
+                              updateCallback: () => setState(() {}),
+                              child: DisplayReceivedDataWidget(
+                                device: BTDeviceStruct(
+                                  name: widget.deviceName,
+                                  id: widget.deviceId,
+                                  rssi: widget.deviceRssi,
+                                ),
                               ),
                             ),
                           ),
