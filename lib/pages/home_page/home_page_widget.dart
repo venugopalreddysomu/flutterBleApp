@@ -125,7 +125,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
           backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
           automaticallyImplyLeading: false,
           title: Text(
-            'BT TELEMETRY CFG',
+            'BT TELEMETRY',
             style: FlutterFlowTheme.of(context).titleLarge,
           ),
           actions: [],
