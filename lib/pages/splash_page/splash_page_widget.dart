@@ -85,8 +85,10 @@ class _SplashPageWidgetState extends State<SplashPageWidget> {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(8.0),
                   child: Image.asset(
-                    'assets/images/BridgeThings-logo2.png',
-                    width: 250.0,
+                    Theme.of(context).brightness == Brightness.dark
+                        ? 'assets/images/BridgeThings-logo2.png'
+                        : 'assets/images/BridgeThings-logo4.png',
+                    width: 240.0,
                     height: 50.0,
                     fit: BoxFit.cover,
                   ),
