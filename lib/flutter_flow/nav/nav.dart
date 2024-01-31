@@ -7,6 +7,7 @@ import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 
 import '/backend/schema/structs/index.dart';
+import '/backend/schema/enums/enums.dart';
 
 import '/index.dart';
 import '/main.dart';
@@ -39,12 +40,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
-      errorBuilder: (context, state) => SplashPageWidget(),
+      errorBuilder: (context, state) => FormWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => SplashPageWidget(),
+          builder: (context, _) => FormWidget(),
         ),
         FFRoute(
           name: 'HomePage',
@@ -68,6 +69,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             hasWriteCharacteristic:
                 params.getParam('hasWriteCharacteristic', ParamType.bool),
           ),
+        ),
+        FFRoute(
+          name: 'form',
+          path: '/form',
+          builder: (context, params) => FormWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
