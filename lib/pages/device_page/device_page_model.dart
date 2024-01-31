@@ -33,12 +33,6 @@ class DevicePageModel extends FlutterFlowModel<DevicePageWidget> {
   int? updatedRssi;
   // Model for StrengthIndicator component.
   late StrengthIndicatorModel strengthIndicatorModel;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode;
-  TextEditingController? textController1;
-  String? Function(BuildContext, String?)? textController1Validator;
-  // Model for DisplayReceivedData component.
-  late DisplayReceivedDataModel displayReceivedDataModel;
   // State field(s) for TeleType widget.
   String? teleTypeValue;
   FormFieldController<String>? teleTypeValueController;
@@ -55,25 +49,27 @@ class DevicePageModel extends FlutterFlowModel<DevicePageWidget> {
   FocusNode? apnFocusNode;
   TextEditingController? apnController;
   String? Function(BuildContext, String?)? apnControllerValidator;
+  // Model for DisplayReceivedData component.
+  late DisplayReceivedDataModel displayReceivedDataModel;
+  // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode;
+  TextEditingController? textController4;
+  String? Function(BuildContext, String?)? textController4Validator;
 
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {
     strengthIndicatorModel =
         createModel(context, () => StrengthIndicatorModel());
+    passwordVisibility = false;
     displayReceivedDataModel =
         createModel(context, () => DisplayReceivedDataModel());
-    passwordVisibility = false;
   }
 
   void dispose() {
     unfocusNode.dispose();
     rssiUpdateTimer?.cancel();
     strengthIndicatorModel.dispose();
-    textFieldFocusNode?.dispose();
-    textController1?.dispose();
-
-    displayReceivedDataModel.dispose();
     ssidfieldFocusNode?.dispose();
     ssidfieldController?.dispose();
 
@@ -82,6 +78,10 @@ class DevicePageModel extends FlutterFlowModel<DevicePageWidget> {
 
     apnFocusNode?.dispose();
     apnController?.dispose();
+
+    displayReceivedDataModel.dispose();
+    textFieldFocusNode?.dispose();
+    textController4?.dispose();
   }
 
   /// Action blocks are added here.

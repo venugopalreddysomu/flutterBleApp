@@ -33,10 +33,8 @@ class _SplashPageWidgetState extends State<SplashPageWidget> {
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       await requestPermission(bluetoothPermission);
       _model.bluetoothEnabled = await actions.isBluetoothEnabled();
-      if (Navigator.of(context).canPop()) {
-        context.pop();
-      }
-      context.pushNamed(
+
+      context.goNamed(
         'HomePage',
         queryParameters: {
           'isBTEnabled': serializeParam(
@@ -65,6 +63,8 @@ class _SplashPageWidgetState extends State<SplashPageWidget> {
         ),
       );
     }
+
+    context.watch<FFAppState>();
 
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
