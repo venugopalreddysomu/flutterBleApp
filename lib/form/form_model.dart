@@ -12,6 +12,12 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class FormModel extends FlutterFlowModel<FormWidget> {
+  ///  Local state fields for this page.
+
+  MetercfgStruct? dummyMeter;
+  void updateDummyMeterStruct(Function(MetercfgStruct) updateFn) =>
+      updateFn(dummyMeter ??= MetercfgStruct());
+
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
