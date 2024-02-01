@@ -23,13 +23,13 @@ class RegistersStruct extends BaseStruct {
 
   // "paramName" field.
   String? _paramName;
-  String get paramName => _paramName ?? '';
+  String get paramName => _paramName ?? 'energy';
   set paramName(String? val) => _paramName = val;
   bool hasParamName() => _paramName != null;
 
   // "paramAddr" field.
   String? _paramAddr;
-  String get paramAddr => _paramAddr ?? '';
+  String get paramAddr => _paramAddr ?? '1200';
   set paramAddr(String? val) => _paramAddr = val;
   bool hasParamAddr() => _paramAddr != null;
 
@@ -47,7 +47,7 @@ class RegistersStruct extends BaseStruct {
 
   // "scalingFactor" field.
   double? _scalingFactor;
-  double get scalingFactor => _scalingFactor ?? 0.0;
+  double get scalingFactor => _scalingFactor ?? 0.1;
   set scalingFactor(double? val) => _scalingFactor = val;
   void incrementScalingFactor(double amount) =>
       _scalingFactor = scalingFactor + amount;
