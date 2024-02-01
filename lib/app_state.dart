@@ -29,6 +29,21 @@ class FFAppState extends ChangeNotifier {
         }
       }
     });
+    _safeInit(() {
+      _meters = prefs
+              .getStringList('ff_meters')
+              ?.map((x) {
+                try {
+                  return MetercfgStruct.fromSerializableMap(jsonDecode(x));
+                } catch (e) {
+                  print("Can't decode persisted data type. Error: $e.");
+                  return null;
+                }
+              })
+              .withoutNulls
+              .toList() ??
+          _meters;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -55,18 +70,25 @@ class FFAppState extends ChangeNotifier {
   List<MetercfgStruct> get meters => _meters;
   set meters(List<MetercfgStruct> _value) {
     _meters = _value;
+    prefs.setStringList('ff_meters', _value.map((x) => x.serialize()).toList());
   }
 
   void addToMeters(MetercfgStruct _value) {
     _meters.add(_value);
+    prefs.setStringList(
+        'ff_meters', _meters.map((x) => x.serialize()).toList());
   }
 
   void removeFromMeters(MetercfgStruct _value) {
     _meters.remove(_value);
+    prefs.setStringList(
+        'ff_meters', _meters.map((x) => x.serialize()).toList());
   }
 
   void removeAtIndexFromMeters(int _index) {
     _meters.removeAt(_index);
+    prefs.setStringList(
+        'ff_meters', _meters.map((x) => x.serialize()).toList());
   }
 
   void updateMetersAtIndex(
@@ -74,10 +96,14 @@ class FFAppState extends ChangeNotifier {
     MetercfgStruct Function(MetercfgStruct) updateFn,
   ) {
     _meters[_index] = updateFn(_meters[_index]);
+    prefs.setStringList(
+        'ff_meters', _meters.map((x) => x.serialize()).toList());
   }
 
   void insertAtIndexInMeters(int _index, MetercfgStruct _value) {
     _meters.insert(_index, _value);
+    prefs.setStringList(
+        'ff_meters', _meters.map((x) => x.serialize()).toList());
   }
 }
 
