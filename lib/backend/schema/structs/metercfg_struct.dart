@@ -25,7 +25,7 @@ class MetercfgStruct extends BaseStruct {
 
   // "meterName" field.
   String? _meterName;
-  String get meterName => _meterName ?? '';
+  String get meterName => _meterName ?? 'Test meter';
   set meterName(String? val) => _meterName = val;
   bool hasMeterName() => _meterName != null;
 
@@ -44,13 +44,13 @@ class MetercfgStruct extends BaseStruct {
 
   // "meterModel" field.
   String? _meterModel;
-  String get meterModel => _meterModel ?? '';
+  String get meterModel => _meterModel ?? 'EN5310';
   set meterModel(String? val) => _meterModel = val;
   bool hasMeterModel() => _meterModel != null;
 
   // "baudRate" field.
   int? _baudRate;
-  int get baudRate => _baudRate ?? 0;
+  int get baudRate => _baudRate ?? 9600;
   set baudRate(int? val) => _baudRate = val;
   void incrementBaudRate(int amount) => _baudRate = baudRate + amount;
   bool hasBaudRate() => _baudRate != null;
