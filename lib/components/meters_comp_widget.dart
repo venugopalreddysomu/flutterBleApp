@@ -518,7 +518,7 @@ class _MetersCompWidgetState extends State<MetersCompWidget> {
                                                                 context)
                                                             .width *
                                                         1.0,
-                                                    height: 350.0,
+                                                    height: 420.0,
                                                     decoration: BoxDecoration(
                                                       color: FlutterFlowTheme
                                                               .of(context)
