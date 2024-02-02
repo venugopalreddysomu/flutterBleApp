@@ -40,12 +40,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
-      errorBuilder: (context, state) => FormWidget(),
+      errorBuilder: (context, state) => SplashPageWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => FormWidget(),
+          builder: (context, _) => SplashPageWidget(),
         ),
         FFRoute(
           name: 'HomePage',
